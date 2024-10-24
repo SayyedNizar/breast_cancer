@@ -82,27 +82,4 @@ print("Recall:", recall)
 print("F1 Score:", f1)
 
 
-input_data = np.array([[12.34, 14.82, 78.32, 477.1, 0.1018, 0.1010, 0.0923, 0.066, 0.1952, 0.0564, 
-                        0.75, 1.25, 5.0, 400.0, 0.012, 0.020, 0.030, 0.004, 0.015, 0.002, 
-                        13.00, 20.00, 100.0, 600.0, 0.150, 0.210, 0.240, 0.045, 0.170, 0.030]])
 
-scaled_input = scaler.transform(input_data)
-
-
-prediction = ada_boost.predict(scaled_input)
-print(f"Predicted Class (0: Benign, 1: Malignant): {prediction[0]}")
-
-
-probability = ada_boost.predict_proba(scaled_input)
-print(f"Prediction Probability: {probability}")
-
-
-actual_label = y_test.iloc[0]  
-print(f"Actual Label: {actual_label}")
-print(f"Predicted Class (0: Benign, 1: Malignant): {int(prediction[0])}")
-print(f"Prediction Probability: {probability[0]}")
-
-if int(prediction[0]) == actual_label:
-    print("The prediction is correct.")
-else:
-    print("The prediction is incorrect.")
